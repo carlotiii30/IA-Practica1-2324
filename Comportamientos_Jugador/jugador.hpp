@@ -4,36 +4,28 @@
 #include "comportamientos/comportamiento.hpp"
 using namespace std;
 
-struct estado {
-  int fila;
-  int columna;
-  int orientacion;
+class ComportamientoJugador : public Comportamiento
+{
 
-  bool bikini;
-  bool zapatillas;
-};
+public:
+  ComportamientoJugador(unsigned int size) : Comportamiento(size)
+  {
+    // Constructor de la clase
+    // Dar el valor inicial a las variables de estado
+  }
 
-class ComportamientoJugador : public Comportamiento{
+  ComportamientoJugador(const ComportamientoJugador &comport) : Comportamiento(comport) {}
+  ~ComportamientoJugador() {}
 
-  public:
-    ComportamientoJugador(unsigned int size) : Comportamiento(size){
-      // Constructor de la clase
-      // Dar el valor inicial a las variables de estado
-    }
+  Action think(Sensores sensores);
+  int interact(Action accion, int valor);
+  void Ver(Sensores sensores);
+  void Precipicios();
 
-    ComportamientoJugador(const ComportamientoJugador & comport) : Comportamiento(comport){}
-    ~ComportamientoJugador(){}
-
-    Action think(Sensores sensores);
-    int interact(Action accion, int valor);
-    int Ver(Sensores sensores);
-    void Precipicios();
-
-  private:
+private:
   // Declarar aquí las variables de estado
-  estado actual;
-
   Action ult_accion;
   int fil, col;
+  bool bikini, zapatillas, recargando;
 };
 #endif
