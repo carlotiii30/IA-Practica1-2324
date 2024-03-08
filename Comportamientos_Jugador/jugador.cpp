@@ -41,25 +41,18 @@ Action ComportamientoJugador::think(Sensores sensores)
 	}
 	else
 	{
-		if (contador < 10)
+		if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M')
 		{
-			if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M')
-			{
-				accion = actTURN_L;
-			}
-			else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M')
-			{
-				accion = actTURN_SR;
-			}
-			else
-			{
-				accion = actWALK;
-			}
+			accion = actTURN_L;
+		}
+		else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M' && contador < 10)
+		{
+			accion = actTURN_SR;
 			contador++;
 		}
 		else
 		{
-			accion = actTURN_L;
+			accion = actWALK;
 			contador = 0;
 		}
 	}
