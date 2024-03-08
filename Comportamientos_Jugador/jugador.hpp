@@ -10,8 +10,8 @@ class ComportamientoJugador : public Comportamiento
 public:
   ComportamientoJugador(unsigned int size) : Comportamiento(size)
   {
-    // Constructor de la clase
-    // Dar el valor inicial a las variables de estado
+    bikini = zapatillas = recargando = false;
+    contador = 0;
   }
 
   ComportamientoJugador(const ComportamientoJugador &comport) : Comportamiento(comport) {}
@@ -27,5 +27,7 @@ private:
   Action ult_accion;
   int fil, col;
   bool bikini, zapatillas, recargando;
+
+  int contador;
 };
 #endif
