@@ -10,6 +10,7 @@ class ComportamientoJugador : public Comportamiento
 public:
   ComportamientoJugador(unsigned int size) : Comportamiento(size)
   {
+    ult_accion = actIDLE;
     bikini = zapatillas = recargando = false;
     contador = 0;
   }

@@ -44,15 +44,25 @@ Action ComportamientoJugador::think(Sensores sensores)
 		if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' && contador < 20)
 		{
 			accion = actTURN_L;
+			ult_accion = actTURN_L;
 			contador++;
 		}
 		else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M' && contador < 20)
 		{
 			accion = actTURN_SR;
+			ult_accion = actTURN_SR;
 			contador++;
 		}
-		else if(contador > 20) {
-			accion = actTURN_L;
+		else if (contador > 20)
+		{
+			if (ult_accion == actTURN_L)
+			{
+				accion = actTURN_SR;
+			}
+			else
+			{
+				accion = actTURN_L;
+			}
 			contador = 0;
 		}
 		else
