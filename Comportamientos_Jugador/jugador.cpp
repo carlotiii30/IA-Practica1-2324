@@ -55,6 +55,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 			{
 				accion = actWALK;
 			}
+			contador++;
 		}
 		else
 		{
