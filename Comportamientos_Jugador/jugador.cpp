@@ -50,10 +50,13 @@ Action ComportamientoJugador::think(Sensores sensores)
 			accion = actTURN_SR;
 			contador++;
 		}
+		else if(contador > 10) {
+			accion = actTURN_L;
+			contador = 0;
+		}
 		else
 		{
 			accion = actWALK;
-			contador = 0;
 		}
 	}
 
