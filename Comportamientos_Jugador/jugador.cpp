@@ -78,16 +78,16 @@ Action ComportamientoJugador::think(Sensores sensores)
 	int pasos = 0;
 
 	if (mapaResultado.size() == 30) {
-		pasos = 10;
+		pasos = 15;
 	}
 	else if (mapaResultado.size() == 50) {
-		pasos = 20;
+		pasos = 25;
 	}
 	else if (mapaResultado.size() == 75) {
-		pasos = 30;
+		pasos = 37;
 	}
 	else {
-		pasos = 40;
+		pasos = 50;
 	}
 
 	if (recargando)
