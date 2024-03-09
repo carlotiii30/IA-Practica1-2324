@@ -106,6 +106,10 @@ Action ComportamientoJugador::think(Sensores sensores)
 		{
 			accion = actTURN_L;
 			contador++;
+
+			if (ult_accion == actTURN_L && contador >= 5) {
+				accion = actWALK;
+			}
 		}
 		else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M' && contador < pasos)
 		{
