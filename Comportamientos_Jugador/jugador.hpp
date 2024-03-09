@@ -10,6 +10,8 @@ class ComportamientoJugador : public Comportamiento
 public:
   ComportamientoJugador(unsigned int size) : Comportamiento(size)
   {
+    fil = col = 99;
+    brujula = 0; // Norte
     ult_accion = actIDLE;
     bikini = zapatillas = recargando = false;
     contador = 0;
@@ -26,7 +28,7 @@ public:
 private:
   // Declarar aquí las variables de estado
   Action ult_accion;
-  int fil, col;
+  int fil, col, brujula;
   bool bikini, zapatillas, recargando;
 
   int contador;

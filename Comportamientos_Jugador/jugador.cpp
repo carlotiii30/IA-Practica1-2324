@@ -5,6 +5,51 @@ using namespace std;
 Action ComportamientoJugador::think(Sensores sensores)
 {
 
+	switch (ult_accion)
+	{
+	case actWALK:
+		switch (brujula)
+		{
+		case 0:
+			fil--;
+			break; // Norte
+		case 1:
+			col++;
+			fil--;
+			break; // Noreste
+		case 2:
+			col++;
+			break; // Este
+		case 3:
+			col++;
+			fil++;
+			break; // Sureste
+		case 4:
+			fil++;
+			break; // Sur
+		case 5:
+			fil++;
+			col--;
+			break; // Suroeste
+		case 6:
+			col--;
+			break; // Oeste
+		case 7:
+			col--;
+			fil--;
+			break; // Noroeste
+		}
+		break;
+
+	case actTURN_L:
+		brujula = (brujula + 6) % 8;
+		break;
+
+	case actTURN_SR:
+		brujula = (brujula + 1) % 8;
+		break;
+	}
+
 	Action accion = actIDLE;
 
 	// Casillas especiales
@@ -44,13 +89,11 @@ Action ComportamientoJugador::think(Sensores sensores)
 		if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' && contador < 15)
 		{
 			accion = actTURN_L;
-			ult_accion = actTURN_L;
 			contador++;
 		}
 		else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M' && contador < 15)
 		{
 			accion = actTURN_SR;
-			ult_accion = actTURN_SR;
 			contador++;
 		}
 		else if (contador > 15)
@@ -76,6 +119,8 @@ Action ComportamientoJugador::think(Sensores sensores)
 	fil = sensores.posF;
 	col = sensores.posC;
 	Ver(sensores);
+
+	ult_accion = accion;
 
 	return accion;
 }
