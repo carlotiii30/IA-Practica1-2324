@@ -107,7 +107,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 			accion = actTURN_L;
 			contador++;
 
-			if (ult_accion == actTURN_L && contador >= 5) {
+			if (ult_accion == actTURN_L && contador >= 10) {
 				accion = actWALK;
 			}
 		}
