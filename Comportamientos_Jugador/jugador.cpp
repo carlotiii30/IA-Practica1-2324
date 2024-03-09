@@ -102,7 +102,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 	}
 	else
 	{
-		if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' && contador < pasos)
+		if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' && contador < pasos || (sensores.terreno[2] == 'B' && !zapatillas) || (sensores.terreno[2] == 'A' && !bikini))
 		{
 			accion = actTURN_L;
 			contador++;
