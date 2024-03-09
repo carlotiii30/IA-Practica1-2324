@@ -74,6 +74,22 @@ Action ComportamientoJugador::think(Sensores sensores)
 	// Completar precipicios: Sabemos que los ult 3 filas y columnas son precipicios.
 	Precipicios();
 
+	// Número de pasos dependiendo del mapa
+	int pasos = 0;
+
+	if (mapaResultado.size() == 30) {
+		pasos = 10;
+	}
+	else if (mapaResultado.size() == 50) {
+		pasos = 20;
+	}
+	else if (mapaResultado.size() == 75) {
+		pasos = 30;
+	}
+	else {
+		pasos = 40;
+	}
+
 	if (recargando)
 	{
 		accion = actIDLE;
@@ -86,17 +102,17 @@ Action ComportamientoJugador::think(Sensores sensores)
 	}
 	else
 	{
-		if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' && contador < 15)
+		if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' && contador < pasos)
 		{
 			accion = actTURN_L;
 			contador++;
 		}
-		else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M' && contador < 15)
+		else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M' && contador < pasos)
 		{
 			accion = actTURN_SR;
 			contador++;
 		}
-		else if (contador > 15)
+		else if (contador > pasos)
 		{
 			if (ult_accion == actTURN_L)
 			{
