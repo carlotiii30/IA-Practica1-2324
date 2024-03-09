@@ -78,16 +78,16 @@ Action ComportamientoJugador::think(Sensores sensores)
 	int pasos = 0;
 
 	if (mapaResultado.size() == 30) {
-		pasos = 15;
+		pasos = 17;
 	}
 	else if (mapaResultado.size() == 50) {
-		pasos = 25;
+		pasos = 30;
 	}
 	else if (mapaResultado.size() == 75) {
-		pasos = 37;
+		pasos = 40;
 	}
 	else {
-		pasos = 50;
+		pasos = 60;
 	}
 
 	if (recargando)
@@ -106,10 +106,6 @@ Action ComportamientoJugador::think(Sensores sensores)
 		{
 			accion = actTURN_L;
 			contador++;
-
-			if (contador >= 5 && contador < 10) {
-				accion = actTURN_SR;
-			}
 		}
 		else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M' && contador < pasos)
 		{
