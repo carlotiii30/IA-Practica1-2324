@@ -110,9 +110,6 @@ Action ComportamientoJugador::think(Sensores sensores)
 			if (contador >= 5 && contador < 10) {
 				accion = actTURN_SR;
 			}
-			if (contador >= 10) {
-				accion = actWALK;
-			}
 		}
 		else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M' && contador < pasos)
 		{
