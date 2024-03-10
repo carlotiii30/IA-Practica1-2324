@@ -77,16 +77,20 @@ Action ComportamientoJugador::think(Sensores sensores)
 	// Número de pasos dependiendo del mapa
 	int pasos = 0;
 
-	if (mapaResultado.size() == 30) {
+	if (mapaResultado.size() == 30)
+	{
 		pasos = 17;
 	}
-	else if (mapaResultado.size() == 50) {
+	else if (mapaResultado.size() == 50)
+	{
 		pasos = 30;
 	}
-	else if (mapaResultado.size() == 75) {
+	else if (mapaResultado.size() == 75)
+	{
 		pasos = 40;
 	}
-	else {
+	else
+	{
 		pasos = 60;
 	}
 
@@ -126,7 +130,17 @@ Action ComportamientoJugador::think(Sensores sensores)
 		}
 		else
 		{
-			accion = actWALK;
+			if (sensores.terreno[6] != 'P' && sensores.terreno[6] != 'M')
+			{																																							// Si no hay muro ni precipicio
+				if ((sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B') || (sensores.terreno[2] == 'A' && bikini) || (sensores.terreno[2] == 'B' && zapatillas)) // Y no tiene coste adicional
+				{
+					accion = actRUN;
+				}
+			}
+			else
+			{
+				accion = actWALK;
+			}
 			contador++;
 		}
 	}
