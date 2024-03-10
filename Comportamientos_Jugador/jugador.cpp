@@ -156,6 +156,11 @@ Action ComportamientoJugador::think(Sensores sensores)
 							accion = actRUN;
 							contador += 2;
 						}
+						else
+						{
+							accion = actWALK;
+							contador++;
+						}
 					}
 					else
 					{
