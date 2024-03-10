@@ -119,7 +119,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 	}
 	else
 	{
-		if (atasco > 2)
+		if (atasco > 5)
 		{
 			if (sensores.terreno[2] != 'P' && sensores.terreno[2] != 'M')
 			{
