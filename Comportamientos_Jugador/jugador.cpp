@@ -118,26 +118,32 @@ Action ComportamientoJugador::think(Sensores sensores)
 				accion = actTURN_SR;
 				contador++;
 			}
-		}
-		else
-		{
-			if (sensores.terreno[6] != 'P' && sensores.terreno[6] != 'M')
-			{																																							// Si no hay muro ni precipicio
-				if ((sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B') || (sensores.terreno[2] == 'A' && bikini) || (sensores.terreno[2] == 'B' && zapatillas)) // Y no tiene coste adicional
-				{
-					accion = actRUN;
-				}
-			}
 			else
 			{
-				if (ult_accion == actTURN_L)
-				{
-					accion = actTURN_SR;
+				if (sensores.terreno[6] != 'P' && sensores.terreno[6] != 'M')
+				{																																							// Si no hay muro ni precipicio
+					if ((sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B') || (sensores.terreno[2] == 'A' && bikini) || (sensores.terreno[2] == 'B' && zapatillas)) // Y no tiene coste adicional
+					{
+						accion = actRUN;
+						contador += 2;
+					}
 				}
 				else
 				{
 					accion = actWALK;
+					contador++;
 				}
+			}
+		}
+		else
+		{
+			if (ult_accion == actTURN_L)
+			{
+				accion = actTURN_SR;
+			}
+			else
+			{
+				accion = actWALK;
 			}
 
 			contador = 0;
