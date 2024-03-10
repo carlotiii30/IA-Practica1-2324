@@ -106,40 +106,49 @@ Action ComportamientoJugador::think(Sensores sensores)
 	}
 	else
 	{
-		if (contador < pasos)
+		if (atasco > 3)
 		{
-			if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' || (sensores.terreno[2] == 'B' && !zapatillas) || (sensores.terreno[2] == 'A' && !bikini))
-			{
-				accion = actTURN_L;
-				contador++;
-			}
-			else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M')
-			{
-				accion = actTURN_SR;
-				contador++;
-			}
-			else
-			{
-				if (sensores.terreno[6] != 'P' && sensores.terreno[6] != 'M')
-				{																																							// Si no hay muro ni precipicio
-					if ((sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B') || (sensores.terreno[2] == 'A' && bikini) || (sensores.terreno[2] == 'B' && zapatillas)) // Y no tiene coste adicional
-					{
-						accion = actRUN;
-						contador += 2;
-					}
-				}
-				else
-				{
-					accion = actWALK;
-					contador++;
-				}
-			}
+			accion = actWALK;
+			atasco = 0;
 		}
 		else
 		{
-			accion = actWALK;
+			if (contador < pasos)
+			{
+				if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' || (sensores.terreno[2] == 'B' && !zapatillas) || (sensores.terreno[2] == 'A' && !bikini))
+				{
+					accion = actTURN_L;
+					contador++;
+					atasco++;
+				}
+				else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M')
+				{
+					accion = actTURN_SR;
+					contador++;
+				}
+				else
+				{
+					if (sensores.terreno[6] != 'P' && sensores.terreno[6] != 'M')
+					{																																							// Si no hay muro ni precipicio
+						if ((sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B') || (sensores.terreno[2] == 'A' && bikini) || (sensores.terreno[2] == 'B' && zapatillas)) // Y no tiene coste adicional
+						{
+							accion = actRUN;
+							contador += 2;
+						}
+					}
+					else
+					{
+						accion = actWALK;
+						contador++;
+					}
+				}
+			}
+			else
+			{
+				accion = actWALK;
 
-			contador = 0;
+				contador = 0;
+			}
 		}
 	}
 

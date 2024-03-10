@@ -15,6 +15,7 @@ public:
     ult_accion = actIDLE;
     bikini = zapatillas = recargando = false;
     contador = 0;
+    atasco = 0;
   }
 
   ComportamientoJugador(const ComportamientoJugador &comport) : Comportamiento(comport) {}
@@ -31,6 +32,6 @@ private:
   int fil, col, brujula;
   bool bikini, zapatillas, recargando;
 
-  int contador;
+  int contador, atasco;
 };
 #endif
