@@ -153,7 +153,10 @@ Action ComportamientoJugador::think(Sensores sensores)
 			}
 			else
 			{
-				accion = actWALK;
+				if (sensores.terreno[2] != 'P' && sensores.terreno[2] != 'M')
+				{
+					accion = actWALK;
+				}
 
 				contador = 0;
 			}
