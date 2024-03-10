@@ -74,6 +74,19 @@ Action ComportamientoJugador::think(Sensores sensores)
 	// Completar precipicios: Sabemos que los ult 3 filas y columnas son precipicios.
 	Precipicios();
 
+	// Posicionamiento
+	if (sensores.nivel == 0)
+	{
+		posicionado = true;
+	}
+	else
+	{
+		if (sensores.terreno[0] == 'G' && !posicionado)
+		{
+			posicionado = true;
+		}
+	}
+
 	// Número de pasos dependiendo del mapa
 	int pasos = 0;
 
@@ -137,7 +150,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 				else
 				{
 					if (sensores.terreno[6] != 'P' && sensores.terreno[6] != 'M')
-					{																																							// Si no hay muro ni precipicio
+					{ // Si no hay muro ni precipicio
 						if (sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B')
 						{
 							accion = actRUN;
@@ -164,9 +177,12 @@ Action ComportamientoJugador::think(Sensores sensores)
 	}
 
 	// Ver el mapa
-	fil = sensores.posF;
-	col = sensores.posC;
-	Ver(sensores);
+	if (posicionado)
+	{
+		fil = sensores.posF;
+		col = sensores.posC;
+		Ver(sensores);
+	}
 
 	ult_accion = accion;
 

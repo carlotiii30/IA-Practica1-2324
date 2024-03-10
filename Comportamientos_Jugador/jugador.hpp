@@ -14,6 +14,8 @@ public:
     brujula = 0; // Norte
     ult_accion = actIDLE;
     bikini = zapatillas = recargando = false;
+    posicionado = false;
+
     contador = 0;
     atasco = 0;
   }
@@ -31,6 +33,7 @@ private:
   Action ult_accion;
   int fil, col, brujula;
   bool bikini, zapatillas, recargando;
+  bool posicionado;
 
   int contador, atasco;
 };
