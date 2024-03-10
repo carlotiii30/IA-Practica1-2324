@@ -138,7 +138,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 				{
 					if (sensores.terreno[6] != 'P' && sensores.terreno[6] != 'M')
 					{																																							// Si no hay muro ni precipicio
-						if ((sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B') || (sensores.terreno[2] == 'A' && bikini) || (sensores.terreno[2] == 'B' && zapatillas)) // Y no tiene coste adicional
+						if (sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B')
 						{
 							accion = actRUN;
 							contador += 2;
