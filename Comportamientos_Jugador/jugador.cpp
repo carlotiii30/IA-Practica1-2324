@@ -115,7 +115,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 			}
 			else
 			{
-				accion = actTURN_L;
+				accion = actTURN_SR;
 				atasco++;
 			}
 		}
