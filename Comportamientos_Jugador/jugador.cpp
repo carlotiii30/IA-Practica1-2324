@@ -137,14 +137,7 @@ Action ComportamientoJugador::think(Sensores sensores)
 		}
 		else
 		{
-			if (ult_accion == actTURN_L)
-			{
-				accion = actTURN_SR;
-			}
-			else
-			{
-				accion = actWALK;
-			}
+			accion = actWALK;
 
 			contador = 0;
 		}
