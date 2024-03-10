@@ -113,6 +113,11 @@ Action ComportamientoJugador::think(Sensores sensores)
 				accion = actWALK;
 				atasco = 0;
 			}
+			else
+			{
+				accion = actTURN_L;
+				atasco++;
+			}
 		}
 		else
 		{
