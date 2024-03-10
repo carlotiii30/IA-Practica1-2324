@@ -149,9 +149,9 @@ Action ComportamientoJugador::think(Sensores sensores)
 				}
 				else
 				{
-					if (sensores.terreno[6] != 'P' && sensores.terreno[6] != 'M')
-					{ // Si no hay muro ni precipicio
-						if (sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B')
+					if (sensores.terreno[6] != 'P' && sensores.terreno[6] != 'M' && sensores.terreno[6] != 'A' && sensores.terreno[6] != 'B' && sensores.terreno[6] != 'T')
+					{
+						if (sensores.terreno[2] != 'A' && sensores.terreno[2] != 'B' && sensores.terreno[2] != 'T')
 						{
 							accion = actRUN;
 							contador += 2;
