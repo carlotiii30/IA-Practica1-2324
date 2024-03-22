@@ -136,13 +136,13 @@ Action ComportamientoJugador::think(Sensores sensores)
 		{
 			if (contador < pasos)
 			{
-				if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' || (sensores.terreno[2] == 'B' && !zapatillas) || (sensores.terreno[2] == 'A' && !bikini))
+				if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M' || sensores.terreno[1] == 'P' || sensores.terreno[1] == 'M' || (sensores.terreno[3] == 'B' && !zapatillas) || (sensores.terreno[3] == 'A' && !bikini))
 				{
 					accion = actTURN_L;
 					contador++;
 					atasco++;
 				}
-				else if (sensores.terreno[3] == 'P' || sensores.terreno[3] == 'M')
+				else if (sensores.terreno[2] == 'P' || sensores.terreno[2] == 'M')
 				{
 					accion = actTURN_SR;
 					contador++;
